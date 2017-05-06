@@ -2,10 +2,10 @@
 <html>
 <head>
 	<title>Rich Text Editor</title>
-	<link href="./lib/css/style.css" rel="stylesheet" />
-	<link href="./lib/css/font-awesome.css" rel="stylesheet" />
-	<!-- <link href="./lib/css/bootstrap-colorpicker.css" rel="stylesheet" /> -->
-	<link rel="stylesheet" href="./lib/css/colorpicker.css" type="text/css" />
+<link href="../src/css/style.css" rel="stylesheet" />
+	<link href="../lib/css/font-awesome.css" rel="stylesheet" />
+	<!--	<link href="../lib/css/bootstrap-colorpicker.css" rel="stylesheet" />-->
+ <link rel="stylesheet" href="../lib/css/colorpicker.css" type="text/css" /> 
 </head>
 <body onload="initDoc();">
 	<form name="compForm" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="if(validateMode()){this.myDoc.value=oDoc.innerHTML;return true;}return false;">
@@ -38,6 +38,8 @@
 			<a class="intLink" title="Italic" onclick="formatDoc('italic');" href="#"><i class='fa fa-italic'></i></a>
 			<a class="intLink" title="Underline" onclick="formatDoc('underline');" href="#"><i class='fa fa-underline'></i></a>
 			<a class="intLink" title="Strike Through" onclick="formatDoc('strikeThrough');" href="#"><i class='fa fa-strikethrough'></i></a>
+			<a class="intLink" title="P" onclick="formatDoc('formatblock','<p>');" href="#">P</a>
+			<a class="intLink" title="Pre" onclick="formatDoc('formatblock','<pre>');" href="#">Pre</a>
 			<a class="intLink" title="Left align" onclick="formatDoc('justifyleft');" href="#"><i class='fa fa-align-left'></i></a>
 			<a class="intLink" title="Center align" onclick="formatDoc('justifycenter');" href="#"><i class='fa fa-align-center'></i></a>
 			<a class="intLink" title="Right align" onclick="formatDoc('justifyright');" href="#"><i class='fa fa-align-right'></i></a>
@@ -46,7 +48,7 @@
 			<a class="intLink" title="Superscript" onclick="formatDoc('superscript');" href="#"><i class='fa fa-superscript'></i></a>
 			<a class="intLink" title="Numbered list" onclick="formatDoc('insertorderedlist');" href="#"><i class='fa fa-list-ol'></i></a>
 			<a class="intLink" title="Dotted list" onclick="formatDoc('insertunorderedlist');" href="#"><i class='fa fa-list-ul'></i></a>
-			<a class="intLink" title="Add indentation" onclick="formatDoc('indent');"href="#"><i class='fa fa-indent'></i></a>
+			<a class="intLink" title="Add indentation" onclick="formatDoc('indent');" href="#"><i class='fa fa-indent'></i></a>
 			<a class="intLink" title="Delete indentation" onclick="formatDoc('outdent');" href="#"><i class='fa fa-outdent'></i></a>
 			<a class="intLink" title="Hyperlink" onclick="var sLnk=prompt('Write the URL here','http:\/\/');if(sLnk&&sLnk!=''&&sLnk!='http://'){formatDoc('createlink',sLnk)}" href="#"><i class='fa fa-link'></i></a>
 			<a class="intLink" title="Unlink" onclick="formatDoc('unlink');" href="#"><i class='fa fa-unlink'></i></a>
@@ -56,7 +58,7 @@
 				</label>
 			</p>
 		</div>
-		<div id="textBox" contenteditable="true"><b>Lorem ipsum</b></div>
+		<div id="textBox" contenteditable="true" onfocus="document.execCommand('selectAll',false,null)"><b>Lorem ipsum</b></div>
 		<!-- <p id="editMode"><input type="checkbox" name="switchMode" id="switchBox" onchange="setDocMode(this.checked);" /> <label for="switchBox">Show HTML</label></p> -->
 		<p><input type="submit" name="add" value="Add" /></p>
 </form>
@@ -64,10 +66,11 @@
 	<p><input type="submit" name="submit" value="Show Result" /></p>
 </form> -->
 <!-- footer JS -->
-<script type="text/javascript" src="./lib/js/jquery.min.js"></script>
-<script type="text/javascript" src="./lib/js/custom-editor.js"></script>
-<!-- <script type="text/javascript" src="./lib/js/bootstrap-colorpicker.js"></script> -->
-<script type="text/javascript" src="./lib/js/colorpicker.js"></script>
+<script type="text/javascript" src="../src/js/jquery.min.js"></script>
+<script type="text/javascript" src="../src/js/custom-editor.js"></script>
+<!--<script type="text/javascript" src="../lib/js/bootstrap-colorpicker.js"></script>-->
+<script type="text/javascript" src="../lib/js/colorpicker.js"></script> 
+<script type="text/javascript" src="../lib/js/jscolor.js"></script>
 </body>
 </html>
 <?php
